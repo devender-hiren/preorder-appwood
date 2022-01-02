@@ -4,11 +4,11 @@ SHOPIFY_API_VERSION = '2021-10'
 ShopifyAPI::Base.api_version = SHOPIFY_API_VERSION
 ShopifyApp.configure do |config|
   credentials = Rails.application.credentials
-  config.application_name = "Social Proof Falcon"
+  config.application_name = "Appwood Preorder"
   config.old_secret = ""
   config.scope = "read_products" # Consult this page for more scope options:
                                   # https://help.shopify.com/en/api/getting-started/authentication/oauth/scopes
-  config.embedded_app = false
+  config.embedded_app = true
   config.after_authenticate_job = false
   config.api_version = "2021-10"
   config.shop_session_repository = 'Shop'

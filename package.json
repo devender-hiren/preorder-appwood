@@ -1,5 +1,5 @@
 {
-  "name": "social-proof-falcon",
+  "name": "appwood-preorder",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.16.5",
