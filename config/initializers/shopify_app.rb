@@ -8,7 +8,7 @@ ShopifyApp.configure do |config|
   config.old_secret = ""
   config.scope = "read_products" # Consult this page for more scope options:
                                   # https://help.shopify.com/en/api/getting-started/authentication/oauth/scopes
-  config.embedded_app = true
+  config.embedded_app = false
   config.after_authenticate_job = false
   config.api_version = "2021-10"
   config.shop_session_repository = 'Shop'
@@ -16,7 +16,7 @@ ShopifyApp.configure do |config|
   config.reauth_on_access_scope_changes = true
 
   config.allow_jwt_authentication = true
-  config.allow_cookie_authentication = false
+  config.allow_cookie_authentication = true
   config.api_key = credentials.dig(:shopify_app, :api_key)
   config.secret = credentials.dig(:shopify_app, :api_secret_key)
   if defined? Rails::Server
