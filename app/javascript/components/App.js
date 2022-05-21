@@ -1,11 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+import MainContainer from "./common/main-container";
+import Welcome from "./welcome";
+
 class App extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <h2>Hello World, please chal bhai</h2>
-        <a href="/apps/index">Test</a>
+        <MainContainer>
+
+          <Welcome />
+
+        </MainContainer>
       </React.Fragment>
     );
   }
