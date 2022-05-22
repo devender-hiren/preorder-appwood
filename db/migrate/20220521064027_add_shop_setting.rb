@@ -7,6 +7,7 @@ class AddShopSetting < ActiveRecord::Migration[6.1]
       t.json "subscribed_apps", default: {"oos_preorder": true,"oos": true,"preorder": true, "coming_soon": true , "price_drop": true}
       t.boolean "uninstalled", default: false
       t.index ["shop_id"], name: "index_shop_settings_on_shop_id"
+      t.timestamps
     end
   end
 end

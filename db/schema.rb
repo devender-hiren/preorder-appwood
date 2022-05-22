@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2022_05_21_071607) do
     t.json "message_above_button", default: {"font_size"=>"14", "alignment"=>"left", "text_color"=>"#F35046", "background"=>"#FFFFFF"}
     t.json "preorder_na_message", default: {"text_color"=>"#606060", "background_color"=>"#FFFFFF", "border_color"=>"#3A3A3A"}
     t.json "preorder_limit_message", default: {"font_size"=>"14", "alignment"=>"left", "text_color"=>"#000", "background"=>"#fdf7e3", "border_color"=>"#eec200"}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_preorder_requests_on_shop_id"
   end
 
@@ -81,6 +83,8 @@ ActiveRecord::Schema.define(version: 2022_05_21_071607) do
     t.datetime "onboarded_at"
     t.json "subscribed_apps", default: {"oos_preorder"=>true, "oos"=>true, "preorder"=>true, "coming_soon"=>true, "price_drop"=>true}
     t.boolean "uninstalled", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_shop_settings_on_shop_id"
   end
 

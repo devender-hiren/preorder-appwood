@@ -26,6 +26,7 @@ class AddPreorderRequest < ActiveRecord::Migration[6.1]
         "border_color": "#eec200"
       }
       t.index ["shop_id"], name: "index_preorder_requests_on_shop_id"
+      t.timestamps
     end
 
   end
