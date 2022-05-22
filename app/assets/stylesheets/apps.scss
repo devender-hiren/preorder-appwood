@@ -1,3 +1,32 @@
 // Place all the styles related to the apps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    a {
+        text-decoration: none;
+        transition: all 0.5s ease-out;
+    }
+
+    .main {
+        &-container {
+            &-body {
+                padding: 1.5em 1em;
+
+                .page-title {
+                    margin: 0;
+                    font-size: 32px;
+
+                    @media (max-width: 599px) {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+}
