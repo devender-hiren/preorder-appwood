@@ -11,6 +11,8 @@
 #  message_above_button   :json
 #  preorder_na_message    :json
 #  preorder_limit_message :json
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 class PreorderRequestSetting < ApplicationRecord
 end
