@@ -1,0 +1,2 @@
+class PreorderRequestSetting < ApplicationRecord
+end
