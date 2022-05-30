@@ -17,7 +17,7 @@ module Shopify
           return
         end
 
-        product = shop.products.find_or_create_by!(shopify_product_id: webhook[:id], title: webhook[:title],
+        product = shop.product_variants.find_or_create_by!(shopify_product_id: webhook[:id], name: webhook[:title],
                                                    handle: webhook[:handle])
 
         images_array = []
@@ -26,7 +26,7 @@ module Shopify
             images_array.push(image[:src])
           end
         end
-        product.update!(image_urls: images_array)
+        product.update!(image_url: images_array)
       end
     end
   end
