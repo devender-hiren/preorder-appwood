@@ -13,4 +13,9 @@
 #  updated_at         :datetime         not null
 #
 class Badge < ApplicationRecord
+    belongs_to :shop
+    belongs_to :product_variant
+    
+    enum badge_type: [:circle, :rectangle, :square] 
+
 end

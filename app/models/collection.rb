@@ -11,4 +11,9 @@
 #  updated_at         :datetime         not null
 #
 class Collection < ApplicationRecord
+    belongs_to :shop
+    has_many :collection_product_variants
+    has_many :product_variants, :through => :collection_product_variants
+
+    validates :name, presence: true
 end

@@ -16,4 +16,9 @@
 #  updated_at         :datetime         not null
 #
 class ProductVariant < ApplicationRecord
+    belongs_to :shop
+    has_many :collection_product_variants
+    has_many :collections, :through => :collection_product_variants
+    
+    validates :name, :shopify_product_id, :shopify_variant_id, :price, presence: true
 end

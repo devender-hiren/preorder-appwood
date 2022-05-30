@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shop_settings/update'
   get 'apps/new'
   get 'apps/create'
   get 'apps/update'
@@ -9,5 +10,7 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   get '/products', :to => 'products#index'
   mount ShopifyApp::Engine, at: '/'
+  match '/delayed_job' => DelayedJobWeb, :anchor => false, :via => %i[get post]
+  resources :shop_settings, only: %i[index update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

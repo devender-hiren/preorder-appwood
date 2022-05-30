@@ -15,4 +15,7 @@
 #  updated_at             :datetime         not null
 #
 class PreorderRequestSetting < ApplicationRecord
+    belongs_to :product_variant
+    belongs_to :customer
+    belongs_to :shop
 end

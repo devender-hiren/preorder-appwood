@@ -12,4 +12,12 @@
 #  updated_at      :datetime         not null
 #
 class ShopSetting < ApplicationRecord
+    belongs_to :shop
+    validate :atleast_one_product_subscribed
+    
+    def atleast_one_product_subscribed
+      if subscribed_apps.values.uniq == [false]
+        errors.add(:subscribed_apps, 'At least one product should be subscribed')
+      end
+    end
 end
