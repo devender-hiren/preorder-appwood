@@ -1,0 +1,2 @@
+module ShopSettingsHelper
+end

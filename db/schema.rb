@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_071607) do
+ActiveRecord::Schema.define(version: 2022_05_30_090359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2022_05_21_071607) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_badges_on_shop_id"
+  end
+
+  create_table "collection_product_variants", id: false, force: :cascade do |t|
+    t.bigint "product_variant_id"
+    t.bigint "collection_id"
+    t.index ["collection_id"], name: "index_collection_product_variants_on_collection_id"
+    t.index ["product_variant_id"], name: "index_collection_product_variants_on_product_variant_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -46,6 +53,21 @@ ActiveRecord::Schema.define(version: 2022_05_21_071607) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_customers_on_shop_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "preorder_request_settings", force: :cascade do |t|
@@ -81,7 +103,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_071607) do
     t.bigint "shop_id"
     t.json "welcome_steps", default: {}
     t.datetime "onboarded_at"
-    t.json "subscribed_apps", default: {"oos_preorder"=>true, "oos"=>true, "preorder"=>true, "coming_soon"=>true, "price_drop"=>true}
+    t.json "subscribed_apps", default: {"oos"=>true, "preorder"=>true, "coming_soon"=>true, "price_drop"=>true}
     t.boolean "uninstalled", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -94,6 +116,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_071607) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "access_scopes"
+    t.json "metadata"
     t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
   end
 

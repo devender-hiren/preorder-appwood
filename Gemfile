@@ -49,3 +49,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# for async worker
+gem 'delayed_job_active_record', '~> 4.1'
+# for web view of delayed job check route /delayed_job
+gem 'delayed_job_web', '~> 1.4'
+# for delayedjob
+gem 'daemons', '~> 1.4'

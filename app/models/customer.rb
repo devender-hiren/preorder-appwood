@@ -12,4 +12,8 @@
 #  updated_at          :datetime         not null
 #
 class Customer < ApplicationRecord
+    belongs_to :shop
+  
+    validates :email, presence: true
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
